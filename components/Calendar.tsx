@@ -14,7 +14,7 @@ export function Calendar({ logs, monthDate = new Date() }: CalendarProps) {
 
   const cells = Array.from({ length: firstDayOffset + totalDays });
   return (
-    <section className="card">
+    <section className="card panel">
       <h2 className="mb-4 text-lg font-semibold capitalize">{formatMonthYear(monthDate)}</h2>
       <div className="mb-2 grid grid-cols-7 gap-1 text-center text-xs text-muted">
         {["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"].map((d) => (

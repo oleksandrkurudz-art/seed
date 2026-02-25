@@ -21,7 +21,7 @@ export function StatsCards({
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {items.map((item) => (
-        <article key={item.label} className="card">
+        <article key={item.label} className="card panel">
           <p className="text-sm text-muted">{item.label}</p>
           <p className={`mt-1 text-3xl font-semibold ${item.color}`}>{item.value}</p>
         </article>

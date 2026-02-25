@@ -15,7 +15,8 @@ const config: Config = {
         "fade-in": "fadeIn .35s ease-out",
         "pop-in": "popIn .35s ease-out",
         confetti: "confetti 1.8s ease-out forwards",
-        glow: "glow 2.2s ease-in-out infinite"
+        glow: "glow 2.2s ease-in-out infinite",
+        drift: "drift 9s linear infinite"
       },
       keyframes: {
         fadeIn: {
@@ -33,6 +34,10 @@ const config: Config = {
         glow: {
           "0%, 100%": { filter: "drop-shadow(0 0 4px rgba(8, 145, 178, .35))" },
           "50%": { filter: "drop-shadow(0 0 16px rgba(34, 197, 94, .45))" }
+        },
+        drift: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" }
         }
       }
     }

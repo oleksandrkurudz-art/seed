@@ -31,12 +31,14 @@ export function Orb({ stage }: OrbProps) {
         </defs>
         <circle cx="120" cy="120" r="80" fill="url(#orbCore)" />
         <circle cx="120" cy="120" r={95 - stage * 3} stroke={cfg.ring} strokeWidth="2.8" fill="none" />
-        {points.map((_, i) => {
-          const angle = (i / cfg.dots) * Math.PI * 2;
-          const x = 120 + Math.cos(angle) * (68 + stage * 2);
-          const y = 120 + Math.sin(angle) * (68 + stage * 2);
-          return <circle key={i} cx={x} cy={y} r={2 + stage * 0.4} fill={cfg.ring} opacity="0.8" />;
-        })}
+        <g className="origin-center animate-drift">
+          {points.map((_, i) => {
+            const angle = (i / cfg.dots) * Math.PI * 2;
+            const x = 120 + Math.cos(angle) * (68 + stage * 2);
+            const y = 120 + Math.sin(angle) * (68 + stage * 2);
+            return <circle key={i} cx={x} cy={y} r={2 + stage * 0.4} fill={cfg.ring} opacity="0.8" />;
+          })}
+        </g>
         {stage >= 4 && (
           <path
             d="M60 130 C 95 80, 145 170, 180 115"

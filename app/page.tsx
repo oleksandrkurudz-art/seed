@@ -17,38 +17,40 @@ export default function DashboardPage() {
   return (
     <div className="space-y-4 animate-fade-in">
       <LevelUpConfetti visible={justLeveledUp} />
-      <section className="card">
-        <p className="text-sm text-muted">Streak</p>
-        <p className="text-4xl font-bold">{stats.currentStreak} днів</p>
+      <section className="card panel relative overflow-hidden">
+        <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-cyan-400/20 blur-2xl" />
+        <p className="text-sm uppercase tracking-wide text-muted">Current streak</p>
+        <p className="text-5xl font-bold leading-tight">{stats.currentStreak} днів</p>
+        <p className="mt-1 text-sm text-muted">Тримай ритм. Один чистий день за раз.</p>
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        <article className="card">
+        <article className="card panel">
           <p className="mb-2 text-sm text-muted">Поточний рівень</p>
           <p className="mb-4 text-3xl font-bold">Level {stats.level}</p>
           <ProgressBar value={stats.progressToNext} max={7} />
         </article>
-        <article className="card">
+        <article className="card panel">
           <p className="text-sm text-muted">Еволюція orb (stage {stats.orbStage}/6)</p>
           <Orb stage={stats.orbStage} />
         </article>
       </section>
 
       <section className="grid gap-3 sm:grid-cols-3">
-        <button className="rounded-xl bg-emerald-600 px-4 py-3 text-sm font-medium text-white" onClick={() => markDay("clean")}>
+        <button className="btn btn-success" onClick={() => markDay("clean")}>
           ✅ Check-in сьогодні (без зриву)
         </button>
-        <button className="rounded-xl bg-rose-600 px-4 py-3 text-sm font-medium text-white" onClick={() => markDay("relapse")}>
+        <button className="btn btn-danger" onClick={() => markDay("relapse")}>
           ⚠️ Зрив сьогодні
         </button>
-        <button className="rounded-xl bg-cyan-600 px-4 py-3 text-sm font-medium text-white" onClick={() => setModalOpen(true)}>
+        <button className="btn btn-primary animate-pulse" onClick={() => setModalOpen(true)}>
           🔥 Мене тригерить
         </button>
       </section>
 
-      <section className="card">
-        <p className="text-sm text-muted">Фраза дня</p>
-        <p className="mt-1 text-lg">{quote}</p>
+      <section className="card panel">
+        <p className="text-sm uppercase tracking-wide text-muted">Фраза дня</p>
+        <p className="mt-1 text-lg font-medium">{quote}</p>
         {data.dailyLogs[todayKey()]?.note && (
           <p className="mt-3 whitespace-pre-wrap text-sm text-muted">Нотатка: {data.dailyLogs[todayKey()]?.note}</p>
         )}

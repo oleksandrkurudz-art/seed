@@ -28,7 +28,7 @@ export default function SettingsPage() {
 
   return (
     <div className="space-y-4 animate-fade-in">
-      <section className="card space-y-3">
+      <section className="card panel space-y-3">
         <h2 className="text-lg font-semibold">Режим</h2>
         <select
           className="w-full rounded-lg border bg-transparent p-2"
@@ -41,14 +41,14 @@ export default function SettingsPage() {
         </select>
       </section>
 
-      <section className="card space-y-3">
+      <section className="card panel space-y-3">
         <h2 className="text-lg font-semibold">Тема</h2>
         <div className="flex gap-2">
           {(["light", "dark"] as ThemeMode[]).map((theme) => (
             <button
               key={theme}
-              className={`rounded-lg px-3 py-2 text-sm ${
-                data.settings.theme === theme ? "bg-cyan-600 text-white" : "border"
+              className={`btn px-3 py-2 ${
+                data.settings.theme === theme ? "btn-primary" : "btn-ghost"
               }`}
               onClick={() => updateTheme(theme)}
             >
@@ -58,7 +58,7 @@ export default function SettingsPage() {
         </div>
       </section>
 
-      <section className="card space-y-3">
+      <section className="card panel space-y-3">
         <h2 className="text-lg font-semibold">Нагадування (MVP UI)</h2>
         <label className="text-sm text-muted">Час чек-іну</label>
         <input
@@ -70,11 +70,11 @@ export default function SettingsPage() {
         <p className="text-xs text-muted">Push/notification для PWA додати пізніше (TODO)</p>
       </section>
 
-      <section className="card space-y-3">
+      <section className="card panel space-y-3">
         <h2 className="text-lg font-semibold">Дані</h2>
         <div className="flex flex-wrap gap-2">
           <button
-            className="rounded-lg bg-emerald-600 px-3 py-2 text-sm text-white"
+            className="btn btn-success px-3 py-2"
             onClick={() => {
               const blob = new Blob([exportData()], { type: "application/json" });
               const url = URL.createObjectURL(blob);
@@ -87,12 +87,12 @@ export default function SettingsPage() {
           >
             Export data
           </button>
-          <label className="cursor-pointer rounded-lg border px-3 py-2 text-sm">
+          <label className="btn btn-ghost cursor-pointer px-3 py-2">
             Import data
             <input ref={fileInputRef} className="hidden" type="file" accept="application/json" onChange={handleImport} />
           </label>
           <button
-            className="rounded-lg bg-rose-600 px-3 py-2 text-sm text-white"
+            className="btn btn-danger px-3 py-2"
             onClick={() => {
               if (window.confirm("Точно скинути всі дані?")) {
                 resetAll();

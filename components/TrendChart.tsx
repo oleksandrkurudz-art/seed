@@ -13,7 +13,7 @@ export function TrendChart({ points }: TrendChartProps) {
   const cleanCount = points.filter((p) => p.status === "clean").length;
 
   return (
-    <section className="card">
+    <section className="card panel">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-lg font-semibold">Тренд за 30 днів</h2>
         <p className="text-sm text-muted">Clean days: {cleanCount}/30</p>

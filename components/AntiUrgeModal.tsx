@@ -81,19 +81,19 @@ export function AntiUrgeModal({ isOpen, onClose, onSaveNote }: AntiUrgeModalProp
       <div className="card max-h-[90vh] w-full max-w-xl overflow-auto animate-pop-in">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="text-xl font-semibold">Мене тригерить</h3>
-          <button className="rounded-lg border px-3 py-1 text-sm" onClick={onClose}>
+          <button className="btn btn-ghost px-3 py-2" onClick={onClose}>
             Закрити
           </button>
         </div>
 
         <div className="mb-4 flex gap-2">
-          <button className={`rounded-lg px-3 py-2 text-sm ${tab === "breath" ? "bg-cyan-600 text-white" : "border"}`} onClick={() => setTab("breath")}>
+          <button className={`btn px-3 py-2 ${tab === "breath" ? "btn-primary" : "btn-ghost"}`} onClick={() => setTab("breath")}>
             Дихання 4-7-8
           </button>
-          <button className={`rounded-lg px-3 py-2 text-sm ${tab === "timer" ? "bg-cyan-600 text-white" : "border"}`} onClick={() => setTab("timer")}>
+          <button className={`btn px-3 py-2 ${tab === "timer" ? "btn-primary" : "btn-ghost"}`} onClick={() => setTab("timer")}>
             Таймер 10 хв
           </button>
-          <button className={`rounded-lg px-3 py-2 text-sm ${tab === "plan" ? "bg-cyan-600 text-white" : "border"}`} onClick={() => setTab("plan")}>
+          <button className={`btn px-3 py-2 ${tab === "plan" ? "btn-primary" : "btn-ghost"}`} onClick={() => setTab("plan")}>
             Швидкий план
           </button>
         </div>
@@ -105,7 +105,7 @@ export function AntiUrgeModal({ isOpen, onClose, onSaveNote }: AntiUrgeModalProp
             <p className="text-4xl font-bold text-cyan-500">{phaseLeft}</p>
             <div className="mt-3 flex gap-2">
               <button
-                className="rounded-lg bg-emerald-600 px-3 py-2 text-sm text-white"
+                className="btn btn-success px-3 py-2"
                 onClick={() => {
                   setCycle(1);
                   setPhaseIndex(0);
@@ -116,7 +116,7 @@ export function AntiUrgeModal({ isOpen, onClose, onSaveNote }: AntiUrgeModalProp
                 Старт 4 цикли
               </button>
               <button
-                className="rounded-lg border px-3 py-2 text-sm"
+                className="btn btn-ghost px-3 py-2"
                 onClick={() => {
                   setBreathRunning(false);
                   setCycle(1);
@@ -135,14 +135,14 @@ export function AntiUrgeModal({ isOpen, onClose, onSaveNote }: AntiUrgeModalProp
             <p className="text-sm text-muted">Потяг пройде</p>
             <p className="text-5xl font-bold text-cyan-500">{timerLabel}</p>
             <div className="mt-3 flex gap-2">
-              <button className="rounded-lg bg-emerald-600 px-3 py-2 text-sm text-white" onClick={() => setTimerRunning(true)}>
+              <button className="btn btn-success px-3 py-2" onClick={() => setTimerRunning(true)}>
                 Старт
               </button>
-              <button className="rounded-lg border px-3 py-2 text-sm" onClick={() => setTimerRunning(false)}>
+              <button className="btn btn-ghost px-3 py-2" onClick={() => setTimerRunning(false)}>
                 Пауза
               </button>
               <button
-                className="rounded-lg border px-3 py-2 text-sm"
+                className="btn btn-ghost px-3 py-2"
                 onClick={() => {
                   setTimerRunning(false);
                   setTimerLeft(600);
@@ -173,7 +173,7 @@ export function AntiUrgeModal({ isOpen, onClose, onSaveNote }: AntiUrgeModalProp
             placeholder="Наприклад: сам, втома, соцмережі..."
           />
           <button
-            className="mt-3 rounded-lg bg-cyan-600 px-3 py-2 text-sm text-white"
+            className="btn btn-primary mt-3 px-3 py-2"
             onClick={() => {
               onSaveNote(note);
               setNote("");
