@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --line: #e2e8f0;
+}
+
+.dark {
+  --bg: #020617;
+  --card: #0f172a;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --line: #1e293b;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(6, 182, 212, 0.1), transparent 24%),
+    radial-gradient(circle at 90% 0%, rgba(34, 197, 94, 0.08), transparent 30%),
+    var(--bg);
+  color: var(--text);
+}
+
+.card {
+  @apply rounded-2xl border p-4 shadow-sm;
+  border-color: var(--line);
+  background: var(--card);
+}
+
+.text-muted {
+  color: var(--muted);
+}
